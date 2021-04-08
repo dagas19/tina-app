@@ -1,6 +1,8 @@
+import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
-import Product from './components/Product';
-import data from './data';
+import HomeScreen from './components/Screens/HomeScreen';
+import ProductScreen from './components/Screens/ProductScreen';
+
 
 function App() {
   return (
@@ -15,12 +17,11 @@ function App() {
                 </div>
             </header>
             <main>
-                <div className="row center">
-                  {data.products.map((product) => (
-                    <Product key={product._id} product={product} />
-                    ))};
+                <BrowserRouter>
+                    <Route path="/product/:id" component={ProductScreen}></Route>
+                    <Route path="/" component={HomeScreen} exact></Route>
                     
-                </div>
+                </BrowserRouter>
             </main>
             <footer className="row center">
                 All right reserved
