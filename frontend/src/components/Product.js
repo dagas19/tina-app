@@ -10,7 +10,7 @@ export default function Product(props) {
             </a>
             <div className="card-body">
                 <a href="product.html">
-                    <a href={`/product/${product._id}`}></a>
+                    <a href={`/product/${product._id}`}> </a>
                 </a>
                 <Rating rating={product.rating} />
                 <div className={product.price}>
