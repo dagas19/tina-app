@@ -17,7 +17,6 @@ const data = {
   ],
   products: [
     {
-      _id: "1",
       name: "Nike slim shirt",
       image: "/images/p1.jpg",
       category: "Shirts",
@@ -29,7 +28,6 @@ const data = {
       description: " high quality product",
     },
     {
-      _id: "2",
       name: "Adidas slim shirt",
       image: "/images/p2.jpg",
       category: "Shirts",
@@ -41,8 +39,7 @@ const data = {
       description: " high quality product",
     },
     {
-      _id: "3",
-      name: "Nike slim shirt",
+      name: "Nike tough shirt",
       image: "/images/p3.jpg",
       category: "Shirts",
       price: 120,
@@ -53,8 +50,7 @@ const data = {
       description: " high quality product",
     },
     {
-      _id: "4",
-      name: "Nike slim shirt",
+      name: "Nike slim trousers",
       image: "/images/p4.jpg",
       category: "Pants",
       price: 120,
@@ -65,8 +61,7 @@ const data = {
       description: " high quality product",
     },
     {
-      _id: "5",
-      name: "Nike slim shirt",
+      name: "Nike slim pants",
       image: "/images/p5.jpg",
       category: "Pants",
       price: 120,
@@ -77,8 +72,7 @@ const data = {
       description: " high quality product",
     },
     {
-      _id: "6",
-      name: "Nike slim shirt",
+      name: "Nike slim shorts",
       image: "/images/p6.jpg",
       category: "Pants",
       price: 120,
