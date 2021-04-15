@@ -65,7 +65,7 @@ export default function SinginScreen(props) {
           <div>
             New customer?{" "}
             <Link to={`/register?redirect=${redirect}`}>
-              Create your account!
+              Create your account?
             </Link>
           </div>
         </div>
