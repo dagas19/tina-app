@@ -3,6 +3,7 @@ import { BrowserRouter, Link, Route } from "react-router-dom";
 import { signout } from "./actions/userActions";
 import "./App.css";
 import PrivateRoute from "./components/PrivateRoute";
+import AdminRoute from "./components/AdminRoute";
 import CartScreen from "./components/Screens/CartScreen";
 import HomeScreen from "./components/Screens/HomeScreen";
 import OrderHistoryScreen from "./components/Screens/OrderHistoryScreen";
@@ -15,6 +16,8 @@ import ProfileScreen from "./components/Screens/ProfileScreen";
 import RegisterScreen from "./components/Screens/RegisterScreen";
 import ShippingAddressScreen from "./components/Screens/ShippingAddressScreen";
 import SinginScreen from "./components/Screens/SigninScreen";
+import ProductEditScreen from "./components/Screens/ProductEditScreen";
+import OrderListScreen from "./components/Screens/OrderListScreen";
 
 function App() {
   const cart = useSelector((state) => state.cart);
@@ -88,18 +91,27 @@ function App() {
         </header>
         <main>
           <Route path="/cart/:id?" component={CartScreen}></Route>
-          <Route path="/product/:id" component={ProductScreen}></Route>
+          <Route path="/product/:id" component={ProductScreen} excat></Route>
           <Route path="/signin" component={SinginScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>
           <Route path="/shipping" component={ShippingAddressScreen}></Route>
           <Route path="/payment" component={PaymentMethodScreen}></Route>
           <Route path="/placeorder" component={PlaceOrderScreen}></Route>
           <Route path="/order/:id" component={OrderScreen}></Route>
+          <AdminRoute
+            path="/orderlist"
+            component={OrderListScreen}
+          ></AdminRoute>
           <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
-          <PrivateRoute
+          <AdminRoute
             path="/productlist"
             component={ProductListScreen}
-          ></PrivateRoute>
+          ></AdminRoute>
+          <Route
+            path="/product/:id/edit"
+            component={ProductEditScreen}
+            exact
+          ></Route>
           <Route path="/" component={HomeScreen} exact></Route>
           <PrivateRoute
             path="/profile"
