@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect("mongodb://localhost/tina-app", {
+mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/tina-app", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
@@ -39,6 +39,8 @@ app.get("*", (req, res) =>
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
 });
+
+const port = process.env.PORT || 5000;
 
 app.listen(5000, () => {
   console.log("Serve at http://localhost:5000");
