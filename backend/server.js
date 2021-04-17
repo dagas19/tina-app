@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/tina-app", {
+mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/tina-app", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
