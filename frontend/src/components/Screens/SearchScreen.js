@@ -81,9 +81,7 @@ export default function SearchScreen(props) {
       <div className="row top">
         <div className="col-1 stick">
           <h3>Department</h3>
-          <ul>
-            <li>Category 1</li>
-          </ul>
+
           <div>
             {loadingCategories ? (
               <LoadingBox></LoadingBox>
