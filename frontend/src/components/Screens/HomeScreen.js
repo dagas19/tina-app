@@ -14,13 +14,13 @@ export default function HomeScreen() {
     dispatch(listProducts({}));
   }, [dispatch]);
   return (
-    <div>
+    <div class="container">
       {loading ? (
         <LoadingBox />
       ) : error ? (
         <MessageBox variant="dam">{error}</MessageBox>
       ) : (
-        <div className="row center">
+        <div class="row pb-5 mb-4">
           {products.map((product) => (
             <Product key={product._id} product={product} />
           ))}

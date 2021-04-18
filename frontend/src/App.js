@@ -53,82 +53,93 @@ function App(props) {
   }, [dispatch]);
   return (
     <BrowserRouter>
-      <div className="grid-container">
-        <header className="row">
+      <div>
+        <header>
           <div>
-            <button
-              type="button"
-              className="open-sidebar"
-              onClick={() => setSidebarIsOpen(true)}
-            >
-              <i className="fa fa-bars"></i>
-            </button>
-            <Link className="brand" to="/">
-              Tina shop
-            </Link>
-          </div>
-          <div>
-            <div className="d-flex content-center">
-              <Header></Header>
-              <Route
-                render={({ history }) => (
-                  <div className="ml-2">
-                    <SearchBox history={history}></SearchBox>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+              <div>
+                <Link className="navbar-brand" to="/">
+                  <img
+                    src="/images/logo.jpg"
+                    alt=""
+                    width="80"
+                    height="80"
+                    class="d-inline-block align-center"
+                  />
+                  Fab & Grand Treasures
+                </Link>
+              </div>
+              <ul class="navbar-nav m-auto p-2 justify-content-between  mw-100">
+                <li>
+                  <ul class="navbar-nav mr-auto justify-content-center ">
+                    <li class="nav-item active">
+                      <Header></Header>
+                    </li>
+
+                    <li>
+                      <Route
+                        render={({ history }) => (
+                          <div className="ml-2">
+                            <SearchBox history={history}></SearchBox>
+                          </div>
+                        )}
+                      ></Route>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <div>
+                <Link to="/cart">
+                  Cart
+                  {cartItems.length > 0 && (
+                    <span className="badge">{cartItems.length}</span>
+                  )}
+                </Link>
+                {userInfo ? (
+                  <div className="dropdown">
+                    <Link to="#">
+                      {userInfo.name} <i className="fa fa-caret-down"></i>
+                    </Link>
+                    <ul className="dropdown-content">
+                      <li>
+                        <Link to="/profile">User Profile</Link>
+                      </li>
+                      <li>
+                        <Link to="/orderhistory">Order History</Link>
+                      </li>
+                      <li>
+                        <Link to="#signout" onClick={signoutHandler}>
+                          Sign out
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                ) : (
+                  <Link to="/signin">Sign in</Link>
+                )}
+                {userInfo && userInfo.isAdmin && (
+                  <div className="dropdown">
+                    <Link to="#admin">
+                      Admin <i className="fa fa-caret-down"></i>
+                    </Link>
+                    <ul className="dropdown-content bg-light">
+                      <li>
+                        <Link to="/dashboard">Dashboard</Link>
+                      </li>
+                      <li>
+                        <Link to="/productlist">Products</Link>
+                      </li>
+                      <li>
+                        <Link to="/orderlist">Orders</Link>
+                      </li>
+                      <li>
+                        <Link to="/userlist">Users</Link>
+                      </li>
+                    </ul>
                   </div>
                 )}
-              ></Route>
-            </div>
-          </div>
-          <div>
-            <Link to="/cart">
-              Cart
-              {cartItems.length > 0 && (
-                <span className="badge">{cartItems.length}</span>
-              )}
-            </Link>
-            {userInfo ? (
-              <div className="dropdown">
-                <Link to="#">
-                  {userInfo.name} <i className="fa fa-caret-down"></i>
-                </Link>
-                <ul className="dropdown-content">
-                  <li>
-                    <Link to="/profile">User Profile</Link>
-                  </li>
-                  <li>
-                    <Link to="/orderhistory">Order History</Link>
-                  </li>
-                  <li>
-                    <Link to="#signout" onClick={signoutHandler}>
-                      Sign out
-                    </Link>
-                  </li>
-                </ul>
               </div>
-            ) : (
-              <Link to="/signin">Sign in</Link>
-            )}
-            {userInfo && userInfo.isAdmin && (
-              <div className="dropdown">
-                <Link to="#admin">
-                  Admin <i className="fa fa-caret-down"></i>
-                </Link>
-                <ul className="dropdown-content">
-                  <li>
-                    <Link to="/dashboard">Dashboard</Link>
-                  </li>
-                  <li>
-                    <Link to="/productlist">Products</Link>
-                  </li>
-                  <li>
-                    <Link to="/orderlist">Orders</Link>
-                  </li>
-                  <li>
-                    <Link to="/userlist">Users</Link>
-                  </li>
-                </ul>
-              </div>
-            )}
+            </nav>
           </div>
         </header>
         <aside className={sidebarIsOpen ? "open" : ""}>
@@ -225,7 +236,12 @@ function App(props) {
             component={UserEditScreen}
           ></AdminRoute>
         </main>
-        <footer className="row center">All right reserved</footer>
+        <footer class="page-footer text-white font-small blue bg-dark">
+          <div class="footer-copyright text-center py-3">
+            © 2020 Copyright:
+            <p>© 2020 Copyright: Fab & Grand Treasures</p>
+          </div>
+        </footer>
       </div>
     </BrowserRouter>
   );

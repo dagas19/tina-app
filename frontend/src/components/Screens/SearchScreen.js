@@ -61,7 +61,7 @@ export default function SearchScreen(props) {
         ) : error ? (
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
-          <div>{products.length} Results</div>
+          <div>' '</div>
         )}
         <div>
           Sort by{" "}
@@ -79,7 +79,7 @@ export default function SearchScreen(props) {
         </div>
       </div>
       <div className="row top">
-        <div className="col-1 stick">
+        <div className="col-1 sticky-top ml-5">
           <h3>Department</h3>
 
           <div>
@@ -143,34 +143,36 @@ export default function SearchScreen(props) {
             </ul>
           </div>
         </div>
-        <div className="col-3">
-          {loading ? (
-            <LoadingBox></LoadingBox>
-          ) : error ? (
-            <MessageBox variant="danger">{error}</MessageBox>
-          ) : (
-            <>
-              {products.length === 0 && (
-                <MessageBox>No Product Found</MessageBox>
-              )}
-              <div className="row center">
-                {products.map((product) => (
-                  <Product key={product._id} product={product}></Product>
-                ))}
-              </div>
-              <div className="row center pagination">
-                {[...Array(pages).keys()].map((x) => (
-                  <Link
-                    className={x + 1 === page ? "active" : ""}
-                    key={x + 1}
-                    to={getFilterUrl({ page: x + 1 })}
-                  >
-                    {x + 1}
-                  </Link>
-                ))}
-              </div>
-            </>
-          )}
+        <div class="container py-5">
+          <div class="row pb-5 mb-4">
+            {loading ? (
+              <LoadingBox></LoadingBox>
+            ) : error ? (
+              <MessageBox variant="danger">{error}</MessageBox>
+            ) : (
+              <>
+                {products.length === 0 && (
+                  <MessageBox>No Product Found</MessageBox>
+                )}
+                <div className="row center">
+                  {products.map((product) => (
+                    <Product key={product._id} product={product}></Product>
+                  ))}
+                </div>
+                <div className="row center pagination">
+                  {[...Array(pages).keys()].map((x) => (
+                    <Link
+                      className={x + 1 === page ? "active" : ""}
+                      key={x + 1}
+                      to={getFilterUrl({ page: x + 1 })}
+                    >
+                      {x + 1}
+                    </Link>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>

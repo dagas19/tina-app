@@ -4,8 +4,8 @@ html {
 }
 body {
   margin: 0;
-  height: 100vh;
-  font-size: 1.6rem;
+  height: 100vh !important;
+  font-size: 1.6rem !important;
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -13,43 +13,25 @@ body {
 #root {
   height: 100%;
 }
+main {
+  min-height: 100vh !important;
+}
 
 /* Layout */
-.grid-container {
-  display: grid;
-  grid-template-areas:
-    "header"
-    "main"
-    "footer";
-  grid-template-columns: 1fr;
-  grid-template-rows: 5rem 1fr 5rem;
-  height: 100%;
-}
-header {
-  grid-area: header;
-  background-color: #203040;
-}
-main {
-  grid-area: main;
-  padding: 1rem;
-}
-footer {
-  grid-area: footer;
-  background-color: #203040;
-  color: #ffffff;
-}
+
 /* Common */
 h1 {
-  font-size: 1.8rem;
+  font-size: 1.8rem !important;
   padding: 1rem 0;
 }
 h2 {
-  font-size: 1.6rem;
+  font-size: 1.6rem !important;
   padding: 1rem 0;
 }
 
 a {
-  text-decoration: none;
+  color: black !important;
+  text-decoration: none !important;
 }
 a:hover {
   color: #ff8000;
@@ -69,14 +51,13 @@ button {
   padding: 1rem;
   border-radius: 0.5rem;
   border: 0.1rem #a4a4a4 solid;
-  font-size: 1.6rem;
+  font-size: 1.6rem !important;
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 button {
-  background-color: #f8f8f8;
-  cursor: pointer;
+  cursor: pointer !important;
 }
 input:hover,
 select:hover,
@@ -91,15 +72,15 @@ button.block {
   width: 100%;
 }
 button.small {
-  font-size: 1.2rem;
+  font-size: 1.2rem !important;
 }
 /* Header */
 header a {
-  color: #ffffff;
+  color: black !important;
   padding: 1rem;
 }
 a.brand {
-  color: #ffffff;
+  color: black !important;
   font-size: 3rem;
   font-weight: bold;
 }
@@ -160,11 +141,11 @@ button.open-sidebar {
   padding: 0.2rem 0.5rem;
   margin: 0 0.5rem;
   background: none;
-  color: #ffffff;
+  color: black !important;
   cursor: pointer;
 }
 button.open-sidebar:hover {
-  border-color: #ffffff;
+  border-color: black !important;
 }
 aside ul {
   padding: 0;
@@ -259,6 +240,7 @@ img.large {
 .form label {
   margin: 1rem 0;
 }
+
 /* Dropdown */
 .dropdown {
   display: inline-block;
@@ -271,7 +253,7 @@ img.large {
   min-width: 12rem;
   padding: 1rem;
   z-index: 1;
-  background-color: #203040;
+  background-color: #203040 !important;
   margin: 0;
   margin-top: 0.4rem;
   border-radius: 0.5rem;
@@ -352,7 +334,7 @@ img.large {
   padding: 1rem;
 }
 .summary-body {
-  font-size: 4rem;
+  font-size: 4rem !important;
   padding: 1rem;
   text-align: center;
 }
