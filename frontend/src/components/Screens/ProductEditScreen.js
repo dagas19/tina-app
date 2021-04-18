@@ -15,6 +15,8 @@ export default function ProductEditScreen(props) {
   const [countInStock, setCountInStock] = useState("");
   const [brand, setBrand] = useState("");
   const [description, setDescription] = useState("");
+  const [color, setColor] = useState("");
+  const [forGender, setForGender] = useState("");
 
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
@@ -39,6 +41,8 @@ export default function ProductEditScreen(props) {
       setCategory(product.category);
       setCountInStock(product.countInStock);
       setBrand(product.brand);
+      setColor(product.color);
+      setForGender(product.forGender);
       setDescription(product.description);
     }
   }, [product, dispatch, productId, successUpdate, props.history]);
@@ -56,6 +60,8 @@ export default function ProductEditScreen(props) {
         brand,
         countInStock,
         description,
+        color,
+        forGender,
       }),
     );
   };
@@ -116,6 +122,26 @@ export default function ProductEditScreen(props) {
                 placeholder="Enter price"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
+              ></input>
+            </div>
+            <div>
+              <label htmlFor="price">color</label>
+              <input
+                id="color"
+                type="text"
+                placeholder="Enter color"
+                value={color}
+                onChange={(e) => setColor(e.target.value)}
+              ></input>
+            </div>
+            <div>
+              <label htmlFor="forGender">For Gender</label>
+              <input
+                id="forGender"
+                type="text"
+                placeholder="Enter forGender"
+                value={forGender}
+                onChange={(e) => setForGender(e.target.value)}
               ></input>
             </div>
             <div>
