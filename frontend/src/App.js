@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 import { signout } from "./actions/userActions";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import PrivateRoute from "./components/PrivateRoute";
 import AdminRoute from "./components/AdminRoute";
 import CartScreen from "./components/Screens/CartScreen";
@@ -27,8 +28,9 @@ import MessageBox from "./components/MessageBox";
 import { listProductCategories } from "./actions/productActions";
 import SearchBox from "./components/SearchBox";
 import DashboardScreen from "./components/Screens/DashboardScreen";
+import Header from "./components/Header";
 
-function App() {
+function App(props) {
   const cart = useSelector((state) => state.cart);
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
 
@@ -66,11 +68,16 @@ function App() {
             </Link>
           </div>
           <div>
-            <Route
-              render={({ history }) => (
-                <SearchBox history={history}></SearchBox>
-              )}
-            ></Route>
+            <div className="d-flex content-center">
+              <Header></Header>
+              <Route
+                render={({ history }) => (
+                  <div className="ml-2">
+                    <SearchBox history={history}></SearchBox>
+                  </div>
+                )}
+              ></Route>
+            </div>
           </div>
           <div>
             <Link to="/cart">
