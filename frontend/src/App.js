@@ -181,6 +181,7 @@ function App() {
           <AdminRoute
             path="/productlist"
             component={ProductListScreen}
+            exact
           ></AdminRoute>
           <Route
             path="/product/:id/edit"

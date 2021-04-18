@@ -37,7 +37,7 @@ export const listProducts = ({
   });
   try {
     const { data } = await Axios.get(
-      `/api/products?pageNumber=${pageNumber}&&name=${name}&category=${category}&min=${min}&max=${max}&rating=${rating}&order=${order}`,
+      `/api/products?pageNumber=${pageNumber}&name=${name}&category=${category}&min=${min}&max=${max}&rating=${rating}&order=${order}`,
     );
     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
   } catch (error) {

@@ -79,7 +79,7 @@ export default function SearchScreen(props) {
         </div>
       </div>
       <div className="row top">
-        <div className="col-1">
+        <div className="col-1 stick">
           <h3>Department</h3>
           <ul>
             <li>Category 1</li>
