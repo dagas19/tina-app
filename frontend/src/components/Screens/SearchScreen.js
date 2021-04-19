@@ -56,7 +56,7 @@ export default function SearchScreen(props) {
         ) : (
           <div>' '</div>
         )}
-        <div>
+        <div className="mr-5 mt-5">
           Sort by{" "}
           <select
             value={order}
@@ -72,7 +72,7 @@ export default function SearchScreen(props) {
           </select>
         </div>
       </div>
-      <div className="row top">
+      <div className="row top mt-5">
         <div className="col-1 sticky-top ml-5 filter">
           <div>
             <h3 className="refine">Price</h3>
