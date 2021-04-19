@@ -1,6 +1,4 @@
-import { useSelector, useDispatch } from "react-redux";
-import { BrowserRouter, Link, Route } from "react-router-dom";
-import { signout } from "./actions/userActions";
+import { BrowserRouter, Route } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PrivateRoute from "./components/PrivateRoute";
@@ -21,157 +19,17 @@ import ProductEditScreen from "./components/Screens/ProductEditScreen";
 import OrderListScreen from "./components/Screens/OrderListScreen";
 import UserListScreen from "./components/Screens/UserListScreen";
 import UserEditScreen from "./components/Screens/UserEditScreen";
-import { useEffect, useState } from "react";
 import SearchScreen from "./components/Screens/SearchScreen";
-import LoadingBox from "./components/LoadingBox";
-import MessageBox from "./components/MessageBox";
-import { listProductCategories } from "./actions/productActions";
-import SearchBox from "./components/SearchBox";
 import DashboardScreen from "./components/Screens/DashboardScreen";
 import Header from "./components/Header";
 
-function App(props) {
-  const cart = useSelector((state) => state.cart);
-  const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
-
-  const { cartItems } = cart;
-  const userSingin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSingin;
-  const dispatch = useDispatch();
-  const signoutHandler = () => {
-    dispatch(signout());
-  };
-
-  const productCategoryList = useSelector((state) => state.productCategoryList);
-  const {
-    loading: loadingCategories,
-    error: errorCategories,
-    categories,
-  } = productCategoryList;
-  useEffect(() => {
-    dispatch(listProductCategories());
-  }, [dispatch]);
+function App() {
   return (
     <BrowserRouter>
       <div>
         <header>
-          <div>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-              <div>
-                <Link className="navbar-brand" to="/">
-                  <img
-                    src="/images/logo.jpg"
-                    alt=""
-                    width="80"
-                    height="80"
-                    class="d-inline-block align-center"
-                  />
-                  Fab & Grand Treasures
-                </Link>
-              </div>
-              <ul class="navbar-nav m-auto p-2 justify-content-between  mw-100">
-                <li>
-                  <ul class="navbar-nav mr-auto justify-content-center ">
-                    <li class="nav-item active">
-                      <Header></Header>
-                    </li>
-
-                    <li>
-                      <Route
-                        render={({ history }) => (
-                          <div className="ml-2">
-                            <SearchBox history={history}></SearchBox>
-                          </div>
-                        )}
-                      ></Route>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-              <div>
-                <Link to="/cart">
-                  Cart
-                  {cartItems.length > 0 && (
-                    <span className="badge">{cartItems.length}</span>
-                  )}
-                </Link>
-                {userInfo ? (
-                  <div className="dropdown">
-                    <Link to="#">
-                      {userInfo.name} <i className="fa fa-caret-down"></i>
-                    </Link>
-                    <ul className="dropdown-content">
-                      <li>
-                        <Link to="/profile">User Profile</Link>
-                      </li>
-                      <li>
-                        <Link to="/orderhistory">Order History</Link>
-                      </li>
-                      <li>
-                        <Link to="#signout" onClick={signoutHandler}>
-                          Sign out
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                ) : (
-                  <Link to="/signin">Sign in</Link>
-                )}
-                {userInfo && userInfo.isAdmin && (
-                  <div className="dropdown">
-                    <Link to="#admin">
-                      Admin <i className="fa fa-caret-down"></i>
-                    </Link>
-                    <ul className="dropdown-content bg-light">
-                      <li>
-                        <Link to="/dashboard">Dashboard</Link>
-                      </li>
-                      <li>
-                        <Link to="/productlist">Products</Link>
-                      </li>
-                      <li>
-                        <Link to="/orderlist">Orders</Link>
-                      </li>
-                      <li>
-                        <Link to="/userlist">Users</Link>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-              </div>
-            </nav>
-          </div>
+          <Header />
         </header>
-        <aside className={sidebarIsOpen ? "open" : ""}>
-          <ul className="categories">
-            <li>
-              <strong>Categories</strong>
-              <button
-                onClick={() => setSidebarIsOpen(false)}
-                className="close-sidebar"
-                type="button"
-              >
-                <i className="fa fa-close"></i>
-              </button>
-            </li>
-            {loadingCategories ? (
-              <LoadingBox></LoadingBox>
-            ) : errorCategories ? (
-              <MessageBox variant="danger">{errorCategories}</MessageBox>
-            ) : (
-              categories.map((c) => (
-                <li key={c}>
-                  <Link
-                    to={`/search/category/${c}`}
-                    onClick={() => setSidebarIsOpen(false)}
-                  >
-                    {c}
-                  </Link>
-                </li>
-              ))
-            )}
-          </ul>
-        </aside>
         <main>
           <Route path="/cart/:id?" component={CartScreen}></Route>
           <Route path="/product/:id" component={ProductScreen} excat></Route>

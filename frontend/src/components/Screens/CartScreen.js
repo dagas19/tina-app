@@ -11,7 +11,7 @@ export default function CartScreen(props) {
     : 1;
 
   const cart = useSelector((state) => state.cart);
-  const { cartItems } = cart;
+  const { cartItems, error } = cart;
   const dispatch = useDispatch();
   useEffect(() => {
     if (productId) {
@@ -28,8 +28,9 @@ export default function CartScreen(props) {
 
   return (
     <div className="row top">
-      <div className="col-2 ml-5">
-        <h1>Shopping cart</h1>
+      <div className="col-2">
+        <h1>Shopping Cart</h1>
+        {error && <MessageBox variant="danger">{error}</MessageBox>}
         {cartItems.length === 0 ? (
           <MessageBox>
             Cart is empty. <Link to="/">Go Shopping</Link>
@@ -40,15 +41,18 @@ export default function CartScreen(props) {
               <li key={item.product}>
                 <div className="row">
                   <div>
-                    <img src={item.image} alt={item.name} className="small" />
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="small"
+                    ></img>
                   </div>
                   <div className="min-30">
-                    <Link to={`product/${item.product}`}>{item.name}</Link>
+                    <Link to={`/product/${item.product}`}>{item.name}</Link>
                   </div>
                   <div>
                     <select
                       value={item.qty}
-                      className="btn btn-dark btn-lg"
                       onChange={(e) =>
                         dispatch(
                           addToCart(item.product, Number(e.target.value)),
@@ -67,7 +71,6 @@ export default function CartScreen(props) {
                     <button
                       type="button"
                       onClick={() => removeFromCartHandler(item.product)}
-                      className="btn btn-dark btn-lg"
                     >
                       Delete
                     </button>
@@ -79,12 +82,12 @@ export default function CartScreen(props) {
         )}
       </div>
       <div className="col-1">
-        <div className="card">
+        <div className="card card-body">
           <ul>
             <li>
               <h2>
-                Subtotal ({cartItems.reduce((a, c) => a + c.qty, 0)} items : $
-                {cartItems.reduce((a, c) => a + c.price * c.qty, 0)})
+                Subtotal ({cartItems.reduce((a, c) => a + c.qty, 0)} items) : $
+                {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
               </h2>
             </li>
             <li>

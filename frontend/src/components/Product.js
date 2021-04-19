@@ -5,8 +5,8 @@ import Rating from "./Rating";
 export default function Product(props) {
   const { product } = props;
   return (
-    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-      <div key={product._id} className="card rounded shadow-sm border-0">
+    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 ">
+      <div key={product._id} className="card rounded shadow-md">
         <div class="card-body p-4">
           <Link to={`/product/${product._id}`}>
             <img

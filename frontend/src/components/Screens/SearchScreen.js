@@ -22,13 +22,6 @@ export default function SearchScreen(props) {
   const productList = useSelector((state) => state.productList);
   const { loading, error, products, page, pages } = productList;
 
-  const productCategoryList = useSelector((state) => state.productCategoryList);
-  const {
-    loading: loadingCategories,
-    error: errorCategories,
-    categories,
-  } = productCategoryList;
-
   useEffect(() => {
     dispatch(
       listProducts({
@@ -70,6 +63,7 @@ export default function SearchScreen(props) {
             onChange={(e) => {
               props.history.push(getFilterUrl({ order: e.target.value }));
             }}
+            className="btn btn-dark "
           >
             <option value="newest">Newest Arrivals</option>
             <option value="lowest">Price: Low to High</option>
@@ -79,42 +73,12 @@ export default function SearchScreen(props) {
         </div>
       </div>
       <div className="row top">
-        <div className="col-1 sticky-top ml-5">
-          <h3>Department</h3>
-
+        <div className="col-1 sticky-top ml-5 filter">
           <div>
-            {loadingCategories ? (
-              <LoadingBox></LoadingBox>
-            ) : errorCategories ? (
-              <MessageBox variant="danger">{errorCategories}</MessageBox>
-            ) : (
-              <ul>
-                <li>
-                  <Link
-                    className={"all" === category ? "active" : ""}
-                    to={getFilterUrl({ category: "all" })}
-                  >
-                    Any
-                  </Link>
-                </li>
-                {categories.map((c) => (
-                  <li key={c}>
-                    <Link
-                      className={c === category ? "active" : ""}
-                      to={getFilterUrl({ category: c })}
-                    >
-                      {c}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-          <div>
-            <h3>Price</h3>
+            <h3 className="refine">Price</h3>
             <ul>
               {prices.map((p) => (
-                <li key={p.name}>
+                <li key={p.name} className="hovered nothov">
                   <Link
                     to={getFilterUrl({ min: p.min, max: p.max })}
                     className={
@@ -128,10 +92,10 @@ export default function SearchScreen(props) {
             </ul>
           </div>
           <div>
-            <h3>Avg. Customer Review</h3>
+            <h3 className="refine">Avg. Customer Review</h3>
             <ul>
               {ratings.map((r) => (
-                <li key={r.name}>
+                <li key={r.name} className="hovered nothov">
                   <Link
                     to={getFilterUrl({ rating: r.rating })}
                     className={`${r.rating}` === `${rating}` ? "active" : ""}
