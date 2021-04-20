@@ -35,7 +35,7 @@ export default function Header(props) {
         </div>
         <div className="mob w-100">
           <div class=" d-flex justify-content-between w-100">
-            <div className="">
+            <div classNameName="">
               <Dropdown>
                 <Dropdown.Toggle
                   variant="success"
@@ -62,6 +62,15 @@ export default function Header(props) {
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
+            </div>
+            <div className="for-mobile">
+              <Route
+                render={({ history }) => (
+                  <div className="ml-2">
+                    <SearchBox history={history}></SearchBox>
+                  </div>
+                )}
+              ></Route>
             </div>
             <div className="">
               <Dropdown>
