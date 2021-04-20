@@ -4,6 +4,7 @@ import { Link, Route } from "react-router-dom";
 import { signout } from "../actions/userActions";
 import SearchBox from "./SearchBox";
 import Nav from "react-bootstrap/Nav";
+import Dropdown from "react-bootstrap/Dropdown";
 
 export default function Header(props) {
   const cart = useSelector((state) => state.cart);
@@ -32,7 +33,74 @@ export default function Header(props) {
             Fab & Grand Treasures
           </Link>
         </div>
+        <div className="mob w-100">
+          <div class=" d-flex justify-content-between w-100">
+            <div className="">
+              <Dropdown>
+                <Dropdown.Toggle
+                  variant="success"
+                  id="dropdown-basic"
+                  className="btn btn-dark "
+                >
+                  <i class="fas fa-bars"></i>
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/action-2">
+                    <Link to={"/search/category/all"}>All</Link>
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">
+                    <Link to={"/search/category/Watches"}>Watches</Link>
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-4">
+                    <Link to={"/search/category/Shoes"}>Shoes</Link>
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-5">
+                    <Link to={"/search/category/Bags%20and%20Wallets"}>
+                      Bags and Wallets
+                    </Link>
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </div>
+            <div className="">
+              <Dropdown>
+                <Dropdown.Toggle
+                  variant="success"
+                  id="dropdown-basic"
+                  className="btn btn-dark "
+                >
+                  <i class="fas fa-bars"></i>
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/action-1">
+                    {" "}
+                    <Link to="/profile">User Profile</Link>
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">
+                    <Link to="/cart">
+                      Cart
+                      {cartItems.length > 0 && (
+                        <span className="badge">{cartItems.length}</span>
+                      )}
+                    </Link>
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">
+                    <Link to="/orderhistory">Order History</Link>
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">
+                    <Link to="#signout" onClick={signoutHandler}>
+                      Sign out
+                    </Link>
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </div>
+          </div>
+        </div>
         <ul class="navbar-nav m-auto p-2 justify-content-between  mw-100">
+          <li></li>
           <li>
             <ul class="navbar-nav mr-auto justify-content-center ">
               <li class="nav-item">
@@ -65,7 +133,7 @@ export default function Header(props) {
                 </div>
               </li>
 
-              <li>
+              <li className="s-box">
                 <Route
                   render={({ history }) => (
                     <div className="ml-2">
@@ -77,7 +145,7 @@ export default function Header(props) {
             </ul>
           </li>
         </ul>
-        <div>
+        <div className="pers">
           <Link to="/cart">
             <i class="fa fa-shopping-bag"></i>
             {cartItems.length > 0 && (

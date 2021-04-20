@@ -403,11 +403,20 @@ img.large {
 .refine {
   font-size: 2.5rem !important;
 }
+.mob {
+  display: none;
+}
 
 /*Media query*/
 
 @media (max-width: 1350px) {
   .filter {
+    display: none;
+  }
+  .brand {
+    display: none;
+  }
+  .s-box {
     display: none;
   }
 }
@@ -417,7 +426,16 @@ img.large {
 }
 @media (max-width: 860px) {
 }
-@media (max-width: 750px) {
+@media only screen and (max-width: 750px) {
+  .nav-item {
+    display: none;
+  }
+  .mob {
+    display: inline-block;
+  }
+  .pers {
+    display: none;
+  }
 }
 @media (max-width: 375px) {
   .col-md-6 {
