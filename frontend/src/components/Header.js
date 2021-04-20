@@ -42,7 +42,7 @@ export default function Header(props) {
                   id="dropdown-basic"
                   className="btn btn-dark "
                 >
-                  <i class="fas fa-bars"></i>
+                  <i class="fa fa-bars"></i>
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
@@ -70,7 +70,7 @@ export default function Header(props) {
                   id="dropdown-basic"
                   className="btn btn-dark "
                 >
-                  <i class="fas fa-bars"></i>
+                  {userInfo.name}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
