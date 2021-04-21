@@ -129,7 +129,7 @@ export default function PlaceOrderScreen(props) {
                 <button
                   type="button"
                   onClick={placeOrderHandler}
-                  className="primary block"
+                  className="btn btn-warning btn-block btn-lg ml-2 pay-button"
                   disabled={cart.cartItems.length === 0}
                 >
                   Place Order

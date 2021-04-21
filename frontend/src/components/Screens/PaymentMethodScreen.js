@@ -52,7 +52,10 @@ export default function PaymentMethodScreen(props) {
           </div>
         </div>
         <div>
-          <button className="primary" type="submit">
+          <button
+            type="submit"
+            className="btn btn-warning btn-block btn-lg ml-2 pay-button"
+          >
             Continue
           </button>
         </div>

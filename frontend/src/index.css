@@ -2,7 +2,9 @@
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5 {
   font-family: "Open Sans", sans-serif;
 }
 
@@ -183,8 +185,8 @@ img {
   border-radius: 0.5rem;
 }
 img.small {
-  max-width: 5rem;
-  width: 100%;
+  max-height: 200px;
+  width: auto;
 }
 img.medium {
   max-width: 15rem;
@@ -288,8 +290,8 @@ img.large {
   font-weight: bold;
 }
 .checkout-steps > div.active {
-  border-top-color: #f08000;
-  color: #f08000;
+  border-top-color: #f0ad4e;
+  color: #f0ad4e;
 }
 /* Table */
 .table {
@@ -406,7 +408,25 @@ img.large {
 .mob {
   display: none;
 }
+.text-grey {
+  color: #a39f9f;
+  font-size: 20px;
+}
+.fa-trash {
+  font-size: 20px;
+}
+.pay-button {
+  color: #fff;
+}
 
+.pay-button:hover {
+  color: #fff;
+}
+
+.pay-button:focus {
+  color: #fff;
+  box-shadow: none;
+}
 /*Media query*/
 
 @media (max-width: 1350px) {

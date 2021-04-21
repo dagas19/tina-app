@@ -89,7 +89,10 @@ export default function ShippingAddressScreen(props) {
         </div>
         <div>
           <label />
-          <button className="primary" type="submit">
+          <button
+            className="btn btn-warning btn-block btn-lg ml-2 pay-button"
+            type="submit"
+          >
             {" "}
             Continue{" "}
           </button>
