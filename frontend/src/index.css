@@ -21,7 +21,7 @@ html {
 body {
   margin: 0;
   height: 100vh !important;
-  font-size: 1.6rem !important;
+  font-size: 1.1vw !important;
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -37,20 +37,24 @@ main {
 
 /* Common */
 h1 {
-  font-size: 1.8rem !important;
+  font-size: 2vw !important;
   padding: 1rem 0;
 }
 h2 {
-  font-size: 1.6rem !important;
+  font-size: 10px !important;
   padding: 1rem 0;
 }
 
 a {
   color: black !important;
   text-decoration: none !important;
+  font-size: 1vw;
 }
 a:hover {
   color: #ff8000;
+}
+.prod-desc {
+  font-size: 1vw;
 }
 ul {
   padding: 0;
@@ -388,6 +392,11 @@ img.large {
   height: 250px !important;
   object-fit: cover !important;
 }
+.img-fluid-cart {
+  width: 100% !important;
+  height: 100px !important;
+  object-fit: cover !important;
+}
 .card {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
   transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
@@ -410,8 +419,8 @@ img.large {
 }
 .text-grey {
   color: #a39f9f;
-  font-size: 20px;
 }
+
 .fa-trash {
   font-size: 20px;
 }

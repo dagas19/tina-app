@@ -27,79 +27,89 @@ export default function CartScreen(props) {
   };
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className="row">
-        <div className="col-8">
-          <h1>Shopping Cart</h1>
-          {error && <MessageBox variant="danger">{error}</MessageBox>}
-          {cartItems.length === 0 ? (
-            <MessageBox>
-              Cart is empty. <Link to="/">Go Shopping</Link>
-            </MessageBox>
-          ) : (
-            <ul>
-              {cartItems.map((item) => (
-                <li key={item.product}>
-                  <div className="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt-4 px-3 rounded">
-                    <div className="mr-1">
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="rounded"
-                        width="200"
-                      ></img>
-                    </div>
-                    <div className="d-flex flex-column align-items-center product-details">
-                      <span className="font-weight-bold">
-                        <Link to={`/product/${item.product}`}>{item.name}</Link>
-                      </span>
-                      <div className="d-flex flex-row product-desc">
-                        <div class="size mr-1">
-                          <span class="text-grey">Size:</span>
-                          <span class="font-weight-bold">&nbsp;M</span>
-                        </div>
-                        <div class="color">
-                          <span class="text-grey">Color:</span>
-                          <span class="font-weight-bold">&nbsp;Grey</span>
+        <div className="col-8 col-md-8 col-sm-12 col-12">
+          <div className="container-fluid">
+            <h1>Shopping Cart</h1>
+            {error && <MessageBox variant="danger">{error}</MessageBox>}
+            {cartItems.length === 0 ? (
+              <MessageBox>
+                Cart is empty. <Link to="/">Go Shopping</Link>
+              </MessageBox>
+            ) : (
+              <ul>
+                {cartItems.map((item) => (
+                  <li key={item.product}>
+                    <div className="row">
+                      <div className="col-xl-2 col-lg-4  col-md-4 col-sm-4 col-12">
+                        <div className="mr-1">
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            className="rounded img-fluid-cart"
+                            width="200"
+                          ></img>
                         </div>
                       </div>
+                      <div className="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-3">
+                        <span className="font-weight-bold">
+                          <Link to={`/product/${item.product}`}>
+                            {item.name}
+                          </Link>
+                        </span>
+                        <div className="d-flex flex-row product-desc">
+                          <div class="size mr-1">
+                            <span class="text-grey prod-desc">Size:</span>
+                            <span class="font-weight-bold prod-desc">
+                              &nbsp;M
+                            </span>
+                          </div>
+                          <div class="color">
+                            <span class="text-grey prod-desc">Color:</span>
+                            <span class="font-weight-bold prod-desc">
+                              &nbsp;Grey
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-xl-2 col-lg-1  col-md-1 col-sm-1 col-3">
+                        <select
+                          value={item.qty}
+                          onChange={(e) =>
+                            dispatch(
+                              addToCart(item.product, Number(e.target.value)),
+                            )
+                          }
+                          className="btn btn-dark"
+                        >
+                          {[...Array(item.countInStock).keys()].map((x) => (
+                            <option key={x + 1} value={x + 1}>
+                              {x + 1}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className="col-xl-2 col-lg-1 col-md-1 col-sm-1 col-3 ">
+                        <h5 className="text-grey">${item.price}</h5>
+                      </div>
+                      <div className="col-xl-2 col-lg-1 col-md-1 col-sm-1 col-3">
+                        <button
+                          type="button"
+                          onClick={() => removeFromCartHandler(item.product)}
+                          className="btn btn-dark"
+                        >
+                          <i class="fa fa-trash mb-1 text-danger"></i>
+                        </button>
+                      </div>
                     </div>
-                    <div>
-                      <select
-                        value={item.qty}
-                        onChange={(e) =>
-                          dispatch(
-                            addToCart(item.product, Number(e.target.value)),
-                          )
-                        }
-                        className="btn btn-dark"
-                      >
-                        {[...Array(item.countInStock).keys()].map((x) => (
-                          <option key={x + 1} value={x + 1}>
-                            {x + 1}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div>
-                      <h5 className="text-grey">${item.price}</h5>
-                    </div>
-                    <div className="d-flex align-items-center">
-                      <button
-                        type="button"
-                        onClick={() => removeFromCartHandler(item.product)}
-                        className="btn btn-dark"
-                      >
-                        <i class="fa fa-trash mb-1 text-danger"></i>
-                      </button>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
-        <div className="col-4">
+        <div className="col-4 col-md-4 col-sm-12 col-12">
           <div className="card card-body">
             <ul>
               <li>

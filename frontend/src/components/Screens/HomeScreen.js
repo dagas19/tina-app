@@ -78,7 +78,7 @@ export default function HomeScreen(props) {
             <h3 className="refine">Price</h3>
             <ul>
               {prices.map((p) => (
-                <li key={p.name} className="hovered nothov">
+                <li key={p.name} className="hovered font-small nothov">
                   <Link
                     to={getFilterUrl({ min: p.min, max: p.max })}
                     className={
@@ -95,7 +95,7 @@ export default function HomeScreen(props) {
             <h3 className="refine">Avg. Customer Review</h3>
             <ul>
               {ratings.map((r) => (
-                <li key={r.name} className="hovered nothov">
+                <li key={r.name} className="hovered font-small nothov">
                   <Link
                     to={getFilterUrl({ rating: r.rating })}
                     className={`${r.rating}` === `${rating}` ? "active" : ""}
