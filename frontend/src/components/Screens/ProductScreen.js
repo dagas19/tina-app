@@ -60,78 +60,73 @@ export default function ProductScreen(props) {
       ) : (
         <div>
           <Link to="/">Back to result</Link>
-          <div className="row top">
-            <div className="col-2">
-              <img class="large" src={product.image} alt={product.image} />
-            </div>
-            <div className="col-1">
-              <ul>
-                <li>
-                  <h1>{product.name}</h1>
-                </li>
-                <li>
-                  <Rating rating={product.rating}></Rating>
-                </li>
-                <li>Price : ${product.price}</li>
-                <li>
-                  Description:
-                  <p>{product.description}</p>
-                </li>
-              </ul>
-            </div>
-            <div className="col-1">
-              <div class="card card-body">
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-xl-4 col-12">
+                <img
+                  class="img-fluid-prod"
+                  src={product.image}
+                  alt={product.image}
+                />
+              </div>
+              <div className="col-xl-4 col-6">
                 <ul>
                   <li>
-                    <div className="row">
-                      <div>Price</div>
-                      <div className="price">${product.price}</div>
-                    </div>
+                    <h1>{product.name}</h1>
                   </li>
                   <li>
-                    <div className="row">
-                      <div>Status: </div>
-                      <div>
+                    <Rating rating={product.rating}></Rating>
+                  </li>
+                  <li>Price : ${product.price}</li>
+                  <li>
+                    Description:
+                    <p>{product.description}</p>
+                  </li>
+                </ul>
+              </div>
+              <div className="col-xl-3 col-3">
+                <div className="container-fluid">
+                  <div className="row">
+                    <div className="col-6 ">
+                      <div className="mb-2">Price</div>
+                      <div className="mb-2">Status: </div>
+                      <div className="mb-2">Qty</div>
+                    </div>
+                    <div className="col-xl-3 col-3">
+                      <div className="price mb-2 text-right">
+                        ${product.price}
+                      </div>
+                      <div className="mb-2 text-right">
                         {product.countInStock > 0 ? (
                           <span className="success">In Stock</span>
                         ) : (
                           <span className="danger">Unavailable</span>
                         )}
                       </div>
-                    </div>
-                  </li>
-                  {product.countInStock > 0 && (
-                    <>
-                      <li>
-                        <div className="row">
-                          <div>Qty</div>
-                          <div>
-                            <select
-                              value={qty}
-                              onChange={(e) => setQty(e.target.value)}
-                            >
-                              {[...Array(product.countInStock).keys()].map(
-                                (x) => (
-                                  <option key={x + 1} value={x + 1}>
-                                    {x + 1}
-                                  </option>
-                                ),
-                              )}
-                            </select>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <button
-                          onClick={addToCartHandler}
-                          className="primary block"
+                      <div className="mb-2 text-right">
+                        <select
+                          value={qty}
+                          className="btn btn-dark"
+                          onChange={(e) => setQty(e.target.value)}
                         >
-                          Add To Cart
-                        </button>
-                      </li>
-                    </>
-                  )}
-                </ul>
+                          {[...Array(product.countInStock).keys()].map((x) => (
+                            <option key={x + 1} value={x + 1}>
+                              {x + 1}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+                    <div className="col-xl-12 col-12">
+                      <button
+                        onClick={addToCartHandler}
+                        className="btn btn-warning btn-block btn-lg ml-2 pay-button"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -160,6 +155,7 @@ export default function ProductScreen(props) {
                       <select
                         id="rating"
                         value={rating}
+                        className="btn btn-dark"
                         onChange={(e) => setRating(e.target.value)}
                       >
                         <option value="">Select...</option>
@@ -180,7 +176,10 @@ export default function ProductScreen(props) {
                     </div>
                     <div>
                       <label />
-                      <button className="primary" type="submit">
+                      <button
+                        className="btn btn-warning btn-block btn-lg ml-2 pay-button"
+                        type="submit"
+                      >
                         Submit
                       </button>
                     </div>

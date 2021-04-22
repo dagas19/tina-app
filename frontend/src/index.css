@@ -214,7 +214,7 @@ img.large {
   margin-bottom: 0.5rem;
 }
 .price {
-  font-size: 2rem;
+  font-size: 1vw;
 }
 /* Rating */
 .rating span {
@@ -397,6 +397,11 @@ img.large {
   height: 100px !important;
   object-fit: cover !important;
 }
+.img-fluid-prod {
+  width: 100% !important;
+  height: 500px !important;
+  object-fit: cover !important;
+}
 .card {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
   transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
@@ -426,6 +431,7 @@ img.large {
 }
 .pay-button {
   color: #fff;
+  font-size: 1vw !important;
 }
 
 .pay-button:hover {
@@ -435,6 +441,9 @@ img.large {
 .pay-button:focus {
   color: #fff;
   box-shadow: none;
+}
+select.btn {
+  font-size: 1vw !important;
 }
 /*Media query*/
 
