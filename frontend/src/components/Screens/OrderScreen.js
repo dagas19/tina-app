@@ -89,7 +89,7 @@ export default function OrderScreen(props) {
           <div className="col-8">
             <ul>
               <li>
-                <div className="card card-body">
+                <div className="card1 card-body1">
                   <h2>Shipping</h2>
                   <p>
                     <strong>Name:</strong>
@@ -109,7 +109,7 @@ export default function OrderScreen(props) {
                 </div>
               </li>
               <li>
-                <div className="card card-body">
+                <div className="card1 card-body1">
                   <h2>Payment</h2>
                   <p>
                     <strong>Method:</strong>
@@ -125,7 +125,7 @@ export default function OrderScreen(props) {
                 </div>
               </li>
               <li>
-                <div className="card card-body">
+                <div className="card1 card-body1">
                   <h2>Order Items</h2>
                   <ul>
                     {order.orderItems.map((item) => (
@@ -156,7 +156,7 @@ export default function OrderScreen(props) {
             </ul>
           </div>
           <div className="col-4">
-            <div className="card card-body">
+            <div className="card1 card-body1">
               <ul>
                 <li>
                   <h2>Order Summary</h2>

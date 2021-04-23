@@ -201,16 +201,16 @@ img.large {
 }
 
 /* Card */
-.card {
+.card1 {
   border: 0.1rem #c0c0c0 solid;
   background-color: #f8f8f8;
   border-radius: 0.5rem;
   margin: 1rem;
 }
-.card-body {
+.card1-body {
   padding: 1rem;
 }
-.card-body > * {
+.card1-body > * {
   margin-bottom: 0.5rem;
 }
 .price {
@@ -414,7 +414,7 @@ img.large {
   transform: scale(1.05);
 }
 .bord-under-nav {
-  border-bottom: 3px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 .refine {
   font-size: 2.5rem !important;
@@ -445,6 +445,7 @@ img.large {
 select.btn {
   font-size: 1vw !important;
 }
+
 /*Media query*/
 
 @media (max-width: 1350px) {

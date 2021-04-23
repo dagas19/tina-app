@@ -81,7 +81,7 @@ export default function CartScreen(props) {
                               addToCart(item.product, Number(e.target.value)),
                             )
                           }
-                          className="btn btn-dark"
+                          className="btn btn-outline-dark"
                         >
                           {[...Array(item.countInStock).keys()].map((x) => (
                             <option key={x + 1} value={x + 1}>
