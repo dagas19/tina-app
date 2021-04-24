@@ -89,53 +89,65 @@ export default function OrderScreen(props) {
           <div className="col-8">
             <ul>
               <li>
-                <div className="card1 card-body1">
-                  <h2>Shipping</h2>
-                  <p>
-                    <strong>Name:</strong>
-                    {order.shippingAddress.fullName} <br />
-                    <strong>Address: </strong>
-                    {order.shippingAddress.address},{order.shippingAddress.city}
-                    , {order.shippingAddress.postalCode},
-                    {order.shippingAddress.country}
-                  </p>
-                  {order.isDelivered ? (
-                    <MessageBox variant="success">
-                      Delivered at {order.deliveredAt}
-                    </MessageBox>
-                  ) : (
-                    <MessageBox variant="danger">Not Delivered</MessageBox>
-                  )}
+                <div className="container-fluid mt-5">
+                  <div className="row border">
+                    <div className="col-4">
+                      <strong>Name:</strong>
+                      <br />
+                      {order.shippingAddress.fullName}
+                    </div>
+                    <div className="col-4">
+                      <p>
+                        <strong>Address: </strong>
+                        <br />
+                        {order.shippingAddress.address},
+                        {order.shippingAddress.city},{" "}
+                        {order.shippingAddress.postalCode},
+                        {order.shippingAddress.country}
+                      </p>
+                      {order.isDelivered ? (
+                        <MessageBox variant="success">
+                          Delivered at {order.deliveredAt}
+                        </MessageBox>
+                      ) : (
+                        <MessageBox variant="danger">Not Delivered</MessageBox>
+                      )}
+                    </div>
+                    <div className="col-4">
+                      <p>
+                        <strong>Payment Method:</strong>
+                        <br />
+                        {order.paymentMethod}
+                      </p>
+                      {order.isPaid ? (
+                        <MessageBox variant="success">
+                          Paid at {order.paidAt}
+                        </MessageBox>
+                      ) : (
+                        <MessageBox variant="danger">Not Paid</MessageBox>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </li>
-              <li>
-                <div className="card1 card-body1">
-                  <h2>Payment</h2>
-                  <p>
-                    <strong>Method:</strong>
-                    {order.paymentMethod}
-                  </p>
-                  {order.isPaid ? (
-                    <MessageBox variant="success">
-                      Paid at {order.paidAt}
-                    </MessageBox>
-                  ) : (
-                    <MessageBox variant="danger">Not Paid</MessageBox>
-                  )}
-                </div>
-              </li>
-              <li>
-                <div className="card1 card-body1">
-                  <h2>Order Items</h2>
-                  <ul>
-                    {order.orderItems.map((item) => (
+            </ul>
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col-4"></div>
+              </div>
+            </div>
+            <div className="container-fluid mt-5 ">
+              <div className="row ">
+                {order.orderItems.map((item) => (
+                  <div className="col-4">
+                    <ul className="fluid">
                       <li key={item.product}>
-                        <div className="row">
+                        <div className="card">
                           <div>
                             <img
                               src={item.image}
                               alt={item.name}
-                              className="small"
+                              className="img-fluid"
                             />
                           </div>
                           <div className="min-30">
@@ -143,44 +155,41 @@ export default function OrderScreen(props) {
                               {item.name}
                             </Link>
                           </div>
-                          <div>
-                            {item.qty} x ${item.price} = $
-                            {item.qty * item.price}
-                          </div>
+                          <div>${item.price}</div>
                         </div>
                       </li>
-                    ))}
-                  </ul>
-                </div>
-              </li>
-            </ul>
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="col-4">
-            <div className="card1 card-body1">
+          <div className="col-4 mt-5">
+            <div className="container-fluid border rounded">
               <ul>
                 <li>
                   <h2>Order Summary</h2>
                 </li>
                 <li>
-                  <div className="row">
+                  <div className="d-flex justify-content-between">
                     <div>Items</div>
                     <div>${order.itemsPrice.toFixed(2)}</div>
                   </div>
                 </li>
                 <li>
-                  <div className="row">
+                  <div className="d-flex justify-content-between">
                     <div>Shipping</div>
                     <div>${order.shippingPrice.toFixed(2)}</div>
                   </div>
                 </li>
                 <li>
-                  <div className="row">
+                  <div className="d-flex justify-content-between">
                     <div>Tax</div>
                     <div>${order.taxPrice.toFixed(2)}</div>
                   </div>
                 </li>
                 <li>
-                  <div className="row">
+                  <div className="d-flex justify-content-between">
                     <div>
                       <strong> Order Total</strong>
                     </div>

@@ -7,7 +7,9 @@ h4,
 h5 {
   font-family: "Open Sans", sans-serif;
 }
-
+.h {
+  font-size: 1.2vw;
+}
 p,
 a,
 span {
@@ -41,7 +43,7 @@ h1 {
   padding: 1rem 0;
 }
 h2 {
-  font-size: 10px !important;
+  font-size: 1.2vw !important;
   padding: 1rem 0;
 }
 
@@ -50,10 +52,7 @@ a {
   text-decoration: none !important;
   font-size: 1vw;
 }
-a:hover {
-  color: #ff8000;
-}
-.prod-desc {
+n .prod-desc {
   font-size: 1vw;
 }
 ul {
@@ -120,7 +119,7 @@ a.brand {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+
   height: 100%;
 }
 .row.center {
@@ -329,12 +328,6 @@ img.large {
 .active {
   border-bottom: 0.5px solid rgb(194, 188, 188);
 }
-.nothov {
-  transition: 0.5s ease-in-out;
-}
-.hovered:hover {
-  transform: scale(1.2, 1.2);
-}
 
 /* Pagination */
 .pagination a {
@@ -428,6 +421,9 @@ img.large {
 
 .fa-trash {
   font-size: 20px;
+}
+.summary {
+  font-size: 1.2vw;
 }
 .pay-button {
   color: #fff;

@@ -39,41 +39,39 @@ export default function PlaceOrderScreen(props) {
       <div className="container-fluid">
         <div className="row">
           <div className="col-8">
-            <ul>
-              <li>
-                <div className="card1 card-body1">
-                  <h2>Shipping</h2>
-                  <p>
-                    <strong>Name:</strong>
-                    {cart.shippingAddress.fullName} <br />
-                    <strong>Address: </strong>
-                    {cart.shippingAddress.address},{cart.shippingAddress.city},{" "}
-                    {cart.shippingAddress.postalCode},
-                    {cart.shippingAddress.country}
-                  </p>
+            <div className="container-fluid mt-5">
+              <div className="row border p-2">
+                <div className="col-4">
+                  <strong>Name:</strong>
+                  <br />
+                  {cart.shippingAddress.fullName}
                 </div>
-              </li>
-              <li>
-                <div className="card1 card-body1">
-                  <h2>Payment</h2>
-                  <p>
-                    <strong>Method:</strong>
-                    {cart.paymentMethod}
-                  </p>
+                <div className="col-4">
+                  <strong>Address: </strong>
+                  <br />
+                  {cart.shippingAddress.address},{cart.shippingAddress.city},{" "}
+                  {cart.shippingAddress.postalCode},
+                  {cart.shippingAddress.country}
                 </div>
-              </li>
-              <li>
-                <div className="card1 card-body1">
-                  <h2>Order Items</h2>
-                  <ul>
-                    {cart.cartItems.map((item) => (
+                <div className="col-4">
+                  <strong>Payment Method:</strong>
+                  <br />
+                  {cart.paymentMethod}
+                </div>
+              </div>
+            </div>
+            <div className="container-fluid mt-5 ">
+              <div className="row ">
+                {cart.cartItems.map((item) => (
+                  <div className="col-4">
+                    <ul className="fluid">
                       <li key={item.product}>
-                        <div className="row">
+                        <div className="card">
                           <div>
                             <img
                               src={item.image}
                               alt={item.name}
-                              className="small"
+                              className="img-fluid"
                             />
                           </div>
                           <div className="min-30">
@@ -81,44 +79,41 @@ export default function PlaceOrderScreen(props) {
                               {item.name}
                             </Link>
                           </div>
-                          <div>
-                            {item.qty} x ${item.price} = $
-                            {item.qty * item.price}
-                          </div>
+                          <div>${item.price}</div>
                         </div>
                       </li>
-                    ))}
-                  </ul>
-                </div>
-              </li>
-            </ul>
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="col-4">
-            <div className="card1 card-body1">
+          <div className="col-4 mt-5">
+            <div className="container-fluid border rounded">
               <ul>
                 <li>
-                  <h2>Order Summary</h2>
+                  <h2 class="summary">Order Summary</h2>
                 </li>
                 <li>
-                  <div className="row">
+                  <div className="d-flex justify-content-between">
                     <div>Items</div>
                     <div>${cart.itemsPrice.toFixed(2)}</div>
                   </div>
                 </li>
                 <li>
-                  <div className="row">
+                  <div className="d-flex justify-content-between">
                     <div>Shipping</div>
                     <div>${cart.shippingPrice.toFixed(2)}</div>
                   </div>
                 </li>
                 <li>
-                  <div className="row">
+                  <div className="d-flex justify-content-between">
                     <div>Tax</div>
                     <div>${cart.taxPrice.toFixed(2)}</div>
                   </div>
                 </li>
                 <li>
-                  <div className="row">
+                  <div className="d-flex justify-content-between">
                     <div>
                       <strong> Order Total</strong>
                     </div>

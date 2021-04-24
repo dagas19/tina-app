@@ -63,7 +63,7 @@ export default function SearchScreen(props) {
             onChange={(e) => {
               props.history.push(getFilterUrl({ order: e.target.value }));
             }}
-            className="btn btn-dark "
+            className="btn btn-outline-dark "
           >
             <option value="newest">Newest Arrivals</option>
             <option value="lowest">Price: Low to High</option>

@@ -12,6 +12,7 @@ productRouter.get(
     const pageSize = 15;
     const page = Number(req.query.pageNumber) || 1;
     const name = req.query.name || "";
+    const color = req.query.color || "";
     const category = req.query.category || "";
     const order = req.query.order || "";
     const min =
@@ -22,6 +23,7 @@ productRouter.get(
       req.query.rating && Number(req.query.rating) !== 0
         ? Number(req.query.rating)
         : 0;
+    const colorFilter = color ? { color } : {};
     const nameFilter = name ? { name: { $regex: name, $options: "i" } } : {};
     const categoryFilter = category ? { category } : {};
     const priceFilter = min && max ? { price: { $gte: min, $lte: max } } : {};
@@ -36,12 +38,14 @@ productRouter.get(
         : { _id: -1 };
     const count = await Product.count({
       ...nameFilter,
+      ...colorFilter,
       ...categoryFilter,
       ...priceFilter,
       ...ratingFilter,
     });
     const products = await Product.find({
       ...nameFilter,
+      ...colorFilter,
       ...categoryFilter,
       ...priceFilter,
       ...ratingFilter,
