@@ -64,7 +64,7 @@ export default function ProductScreen(props) {
             <div className="row">
               <div className="col-xl-5 col-12 ">
                 <img
-                  class="img-fluid-prod"
+                  className="img-fluid-prod"
                   src={product.image}
                   alt={product.image}
                 />

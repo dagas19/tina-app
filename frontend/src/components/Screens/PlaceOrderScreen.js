@@ -62,9 +62,9 @@ export default function PlaceOrderScreen(props) {
             </div>
             <div className="container-fluid mt-5 ">
               <div className="row ">
-                {cart.cartItems.map((item) => (
-                  <div className="col-4">
-                    <ul className="fluid">
+                <ul className="fluid">
+                  {cart.cartItems.map((item) => (
+                    <div className="col-4">
                       <li key={item.product}>
                         <div className="card">
                           <div>
@@ -82,9 +82,9 @@ export default function PlaceOrderScreen(props) {
                           <div>${item.price}</div>
                         </div>
                       </li>
-                    </ul>
-                  </div>
-                ))}
+                    </div>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
@@ -92,7 +92,7 @@ export default function PlaceOrderScreen(props) {
             <div className="container-fluid border rounded">
               <ul>
                 <li>
-                  <h2 class="summary">Order Summary</h2>
+                  <h2 className="summary">Order Summary</h2>
                 </li>
                 <li>
                   <div className="d-flex justify-content-between">

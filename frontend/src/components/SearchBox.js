@@ -13,7 +13,7 @@ export default function SearchBox(props) {
           type="text"
           name="q"
           id="q"
-          class="form-control"
+          className="form-control"
           onChange={(e) => setName(e.target.value)}
         ></input>
       </div>

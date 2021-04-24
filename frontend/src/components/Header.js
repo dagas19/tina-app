@@ -20,7 +20,7 @@ export default function Header(props) {
 
   return (
     <div className="bord-under-nav">
-      <nav class="navbar navbar-expand-lg  justify-content-between">
+      <nav className="navbar navbar-expand-lg  justify-content-between">
         <div className="brand">
           <Link className="navbar-brand" to="/">
             <img
@@ -28,21 +28,21 @@ export default function Header(props) {
               alt=""
               width="80"
               height="80"
-              class="d-inline-block align-center"
+              className="d-inline-block align-center"
             />
             Fab & Grand Treasures
           </Link>
         </div>
         <div className="mob w-100">
-          <div class=" d-flex justify-content-between w-100">
-            <div classNameName="">
+          <div className=" d-flex justify-content-between w-100">
+            <div className="">
               <Dropdown>
                 <Dropdown.Toggle
                   variant="success"
                   id="dropdown-basic"
                   className="btn btn-dark "
                 >
-                  <i class="fa fa-bars"></i>
+                  <i className="fa fa-bars"></i>
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
@@ -108,11 +108,11 @@ export default function Header(props) {
             </div>
           </div>
         </div>
-        <ul class="navbar-nav m-auto p-2 justify-content-between  mw-100">
+        <ul className="navbar-nav m-auto p-2 justify-content-between  mw-100">
           <li></li>
           <li>
-            <ul class="navbar-nav mr-auto justify-content-center ">
-              <li class="nav-item">
+            <ul className="navbar-nav mr-auto justify-content-center ">
+              <li className="nav-item">
                 <div className="d-flex content-center">
                   <Nav justify variant="tabs" defaultActiveKey="/home">
                     <Nav.Item>
@@ -156,7 +156,7 @@ export default function Header(props) {
         </ul>
         <div className="pers">
           <Link to="/cart">
-            <i class="fa fa-shopping-bag"></i>
+            <i className="fa fa-shopping-bag"></i>
             {cartItems.length > 0 && (
               <span className="badge">{cartItems.length}</span>
             )}

@@ -59,15 +59,15 @@ export default function CartScreen(props) {
                           </Link>
                         </span>
                         <div className="d-flex flex-row product-desc">
-                          <div class="size mr-1">
-                            <span class="text-grey prod-desc">Size:</span>
-                            <span class="font-weight-bold prod-desc">
+                          <div className="size mr-1">
+                            <span className="text-grey prod-desc">Size:</span>
+                            <span className="font-weight-bold prod-desc">
                               &nbsp;M
                             </span>
                           </div>
-                          <div class="color">
-                            <span class="text-grey prod-desc">Color:</span>
-                            <span class="font-weight-bold prod-desc">
+                          <div className="color">
+                            <span className="text-grey prod-desc">Color:</span>
+                            <span className="font-weight-bold prod-desc">
                               &nbsp;Grey
                             </span>
                           </div>
@@ -99,7 +99,7 @@ export default function CartScreen(props) {
                           onClick={() => removeFromCartHandler(item.product)}
                           className="btn btn-dark"
                         >
-                          <i class="fa fa-trash mb-1 text-danger"></i>
+                          <i className="fa fa-trash mb-1 text-danger"></i>
                         </button>
                       </div>
                     </div>

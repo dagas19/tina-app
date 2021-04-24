@@ -107,8 +107,8 @@ export default function SearchScreen(props) {
             </ul>
           </div>
         </div>
-        <div class="container py-5">
-          <div class="row pb-5 mb-4">
+        <div className="container py-5">
+          <div className="row pb-5 mb-4">
             {loading ? (
               <LoadingBox></LoadingBox>
             ) : error ? (

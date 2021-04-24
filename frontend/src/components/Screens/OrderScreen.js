@@ -138,9 +138,9 @@ export default function OrderScreen(props) {
             </div>
             <div className="container-fluid mt-5 ">
               <div className="row ">
-                {order.orderItems.map((item) => (
-                  <div className="col-4">
-                    <ul className="fluid">
+                <ul className="fluid">
+                  {order.orderItems.map((item) => (
+                    <div className="col-4">
                       <li key={item.product}>
                         <div className="card">
                           <div>
@@ -158,9 +158,9 @@ export default function OrderScreen(props) {
                           <div>${item.price}</div>
                         </div>
                       </li>
-                    </ul>
-                  </div>
-                ))}
+                    </div>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>

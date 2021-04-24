@@ -94,8 +94,8 @@ function App() {
             component={UserEditScreen}
           ></AdminRoute>
         </main>
-        <footer class="page-footer text-white font-small blue bg-dark">
-          <div class="footer-copyright text-center py-3">
+        <footer className="page-footer text-white font-small blue bg-dark">
+          <div className="footer-copyright text-center py-3">
             © 2020 Copyright:
             <p>© 2020 Copyright: Fab & Grand Treasures</p>
           </div>
