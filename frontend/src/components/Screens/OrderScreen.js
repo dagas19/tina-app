@@ -138,29 +138,27 @@ export default function OrderScreen(props) {
             </div>
             <div className="container-fluid mt-5 ">
               <div className="row ">
-                <ul className="fluid">
-                  {order.orderItems.map((item) => (
-                    <div className="col-4">
-                      <li key={item.product}>
-                        <div className="card">
-                          <div>
-                            <img
-                              src={item.image}
-                              alt={item.name}
-                              className="img-fluid"
-                            />
-                          </div>
-                          <div className="min-30">
-                            <Link to={`product/${item.product}`}>
-                              {item.name}
-                            </Link>
-                          </div>
-                          <div>${item.price}</div>
+                {order.orderItems.map((item) => (
+                  <div className="col-4">
+                    <div key={item.product}>
+                      <div className="card">
+                        <div>
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            className="img-fluid"
+                          />
                         </div>
-                      </li>
+                        <div className="min-30">
+                          <Link to={`product/${item.product}`}>
+                            {item.name}
+                          </Link>
+                        </div>
+                        <div>${item.price}</div>
+                      </div>
                     </div>
-                  ))}
-                </ul>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
