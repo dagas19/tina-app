@@ -7,6 +7,9 @@ h4,
 h5 {
   font-family: "Open Sans", sans-serif;
 }
+.h-5 {
+  font-size: 1.2vw;
+}
 .h {
   font-size: 1.2vw;
 }
