@@ -72,15 +72,13 @@ export default function Header(props) {
                 )}
               ></Route>
             </div>
-            <div className="">
+            <div>
               <Dropdown>
                 <Dropdown.Toggle
                   variant="success"
                   id="dropdown-basic"
                   className="btn btn-dark "
-                >
-                  {userInfo.name}
-                </Dropdown.Toggle>
+                ></Dropdown.Toggle>
 
                 <Dropdown.Menu>
                   <Dropdown.Item href="#/action-1">
