@@ -41,3 +41,11 @@ export const ratings = [
     rating: 1,
   },
 ];
+export const colors = [
+  {
+    name: "blue",
+  },
+  {
+    name: "red",
+  },
+];

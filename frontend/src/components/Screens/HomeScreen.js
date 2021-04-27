@@ -5,12 +5,13 @@ import MessageBox from "../MessageBox.js";
 import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "../../actions/productActions.js";
 import { Link, useParams } from "react-router-dom";
-import { prices, ratings } from "../../utils.js";
+import { colors, prices, ratings } from "../../utils.js";
 import Rating from "../Rating.js";
 
 export default function HomeScreen(props) {
   const {
     name = "all",
+    color = "all",
     category = "all",
     min = 0,
     max = 0,
@@ -26,6 +27,7 @@ export default function HomeScreen(props) {
     dispatch(
       listProducts({
         pageNumber,
+        color: color !== "all" ? color : "",
         name: name !== "all" ? name : "",
         category: category !== "all" ? category : "",
         min,
@@ -34,17 +36,18 @@ export default function HomeScreen(props) {
         order,
       }),
     );
-  }, [category, dispatch, max, min, name, order, rating, pageNumber]);
+  }, [category, dispatch, max, min, name, order, rating, color, pageNumber]);
 
   const getFilterUrl = (filter) => {
     const filterPage = filter.page || pageNumber;
     const filterCategory = filter.category || category;
+    const filterColor = filter.color || color;
     const filterName = filter.name || name;
     const filterRating = filter.rating || rating;
     const sortOrder = filter.order || order;
     const filterMin = filter.min ? filter.min : filter.min === 0 ? 0 : min;
     const filterMax = filter.max ? filter.max : filter.max === 0 ? 0 : max;
-    return `/search/category/${filterCategory}/name/${filterName}/min/${filterMin}/max/${filterMax}/rating/${filterRating}/order/${sortOrder}/pageNumber/${filterPage}`;
+    return `/search/category/${filterCategory}/name/${filterName}/color/${filterColor}/min/${filterMin}/max/${filterMax}/rating/${filterRating}/order/${sortOrder}/pageNumber/${filterPage}`;
   };
   return (
     <div>
@@ -87,6 +90,16 @@ export default function HomeScreen(props) {
                   >
                     {p.name}
                   </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="refine">Price</h3>
+            <ul>
+              {colors.map((c) => (
+                <li key={c.name} className="hovered font-small nothov">
+                  <Link to={getFilterUrl({ color: c.color })}>{c.name}</Link>
                 </li>
               ))}
             </ul>
