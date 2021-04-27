@@ -43,9 +43,9 @@ export const ratings = [
 ];
 export const colors = [
   {
-    name: "blue",
+    color: "blue",
   },
   {
-    name: "red",
+    color: "red",
   },
 ];

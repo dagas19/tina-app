@@ -22,7 +22,7 @@ const productSchema = new mongoose.Schema(
     countInStock: { type: Number, required: true },
     rating: { type: Number },
     numReviews: { type: Number, required: true },
-    color: { type: String },
+    color: { type: String, required: true },
     forGender: { type: String },
     reviews: [reviewSchema],
   },
