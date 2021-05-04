@@ -14,6 +14,7 @@ export default function Header(props) {
   const {
     name = "all",
     category = "all",
+    brand = "all",
     min = 0,
     max = 0,
     rating = 0,
@@ -142,6 +143,7 @@ export default function Header(props) {
             </div>
           </div>
         </div>
+
         {loadingCategories ? (
           <LoadingBox></LoadingBox>
         ) : errorCategories ? (

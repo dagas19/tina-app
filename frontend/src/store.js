@@ -13,6 +13,7 @@ import {
 } from "./reducers/orderReducers";
 import {
   productCategoryListReducer,
+  productBrandListReducer,
   productCreateReducer,
   productDeleteReducer,
   productDetailsReducer,
@@ -68,6 +69,7 @@ const reducer = combineReducers({
   userDelete: userDeleteReducer,
   userUpdate: userUpdateReducer,
   productCategoryList: productCategoryListReducer,
+  productBrandList: productBrandListReducer,
   productReviewCreate: productReviewCreateReducer,
   orderSummary: orderSummaryReducer,
 });

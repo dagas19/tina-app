@@ -12,8 +12,8 @@ productRouter.get(
     const pageSize = 15;
     const page = Number(req.query.pageNumber) || 1;
     const name = req.query.name || "";
-    const color = req.query.color || "";
     const category = req.query.category || "";
+    const brand = req.query.brand || "";
     const order = req.query.order || "";
     const min =
       req.query.min && Number(req.query.min) !== 0 ? Number(req.query.min) : 0;
@@ -23,9 +23,9 @@ productRouter.get(
       req.query.rating && Number(req.query.rating) !== 0
         ? Number(req.query.rating)
         : 0;
-    const colorFilter = color ? { color: { $gte: color } } : {};
     const nameFilter = name ? { name: { $regex: name, $options: "i" } } : {};
     const categoryFilter = category ? { category } : {};
+    const brandFilter = brand ? { brand } : {};
     const priceFilter = min && max ? { price: { $gte: min, $lte: max } } : {};
     const ratingFilter = rating ? { rating: { $gte: rating } } : {};
     const sortOrder =
@@ -38,15 +38,15 @@ productRouter.get(
         : { _id: -1 };
     const count = await Product.count({
       ...nameFilter,
-      ...colorFilter,
       ...categoryFilter,
+      ...brandFilter,
       ...priceFilter,
       ...ratingFilter,
     });
     const products = await Product.find({
       ...nameFilter,
-      ...colorFilter,
       ...categoryFilter,
+      ...brandFilter,
       ...priceFilter,
       ...ratingFilter,
     })
@@ -64,7 +64,13 @@ productRouter.get(
     res.send(categories);
   }),
 );
-
+productRouter.get(
+  "/brands",
+  expressAsyncHandler(async (req, res) => {
+    const brands = await Product.find().distinct("brand");
+    res.send(brands);
+  }),
+);
 productRouter.get(
   "/seed",
   expressAsyncHandler(async (req, res) => {

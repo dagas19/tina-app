@@ -85,6 +85,11 @@ function App() {
             exact
           ></Route>
           <Route
+            path="/search/brand/:brand"
+            component={SearchScreen}
+            exact
+          ></Route>
+          <Route
             path="/search/category/:category/name/:name"
             component={SearchScreen}
             exact
